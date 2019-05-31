@@ -11,11 +11,12 @@ package vista;
  */
 public class RegpacienteInternalFrame extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form RegpacienteInternalFrame
-     */
+   private controlador.PacienteControl pacienteControl;
     public RegpacienteInternalFrame() {
         initComponents();
+        pacienteControl=new controlador.PacienteControl(this);
+        jButton1.addActionListener(pacienteControl);
+        jButton2.addActionListener(pacienteControl);
     }
 
     /**

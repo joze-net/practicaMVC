@@ -5,17 +5,29 @@
  */
 package vista;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author JOZE RODRIGUEZ
  */
 public class ConsPacientesInternalFrame extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ConsPacientesInternalFrame
-     */
+    public controlador.GestorPacienteControl gestorPacienteControl;
+    private DefaultTableModel tabla;
+    
     public ConsPacientesInternalFrame() {
         initComponents();
+        gestorPacienteControl=new  controlador.GestorPacienteControl(this);
+        String titulosTabla[]={"Identificacion","Nombres","Apeliidos","Fecha nacimiento","Genero"};
+        tabla=new DefaultTableModel(null,titulosTabla);
+        tblDatos.setModel(tabla);
+        btnAceptar.addActionListener(gestorPacienteControl);
+       
+        
+    }
+    public DefaultTableModel getTablaModel(){
+        return tabla;
     }
 
     /**
